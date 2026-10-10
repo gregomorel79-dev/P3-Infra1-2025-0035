@@ -130,7 +130,7 @@ Se usan los tres bloques de la matrícula: **20**, **25** y **35**.
 
 | | |
 |---|---|
-| ![](img/07-politica-vlan20-ssh.png) | ![](img/08-politica-vlan10-ssh-bloqueo.png) |
+| ![](img/07-politica-vlan20) | ![](img/08-politica-vlan10-ssh-bloqueo.png) |
 | ![](img/10-politica-vlan10-inventario.png) | ![](img/11-politica-vlan10-caja.png) |
 | ![](img/12-politica-vlan20-web.png) | ![](img/13-politica-dmz-actualizaciones.png) |
 | ![](img/14-politica-dmz-dns.png) | ![](img/15-politica-dmz-bloqueo-lan.png) |
@@ -151,7 +151,7 @@ Seguridad básica aplicada en ambos:
 
 Running-configs completos en [`configs/`](configs/).
 
-![SW1 VLAN y trunk](img/17-sw1-vlan-trunk.png)
+![SW1 VLAN y trunk](img/17-sw1-vlan-brief.png)
 ![SW2 VLAN](img/19-sw2-vlan-brief.png)
 
 ---
