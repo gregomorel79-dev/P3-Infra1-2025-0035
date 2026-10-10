@@ -1,0 +1,184 @@
+
+SW2-DMZ#terminal length 0
+SW2-DMZ#show running-config
+Building configuration...
+
+Current configuration : 4486 bytes
+!
+! Last configuration change at 16:07:07 UTC Sat Oct 10 2026
+!
+version 15.2
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+service compress-config
+!
+hostname SW2-DMZ
+!
+boot-start-marker
+boot-end-marker
+!
+!
+enable secret 5 $1$OXBP$l1WXKyj8uu0EVoD.m4wKK0
+!
+username admin privilege 15 secret 5 $1$faXZ$KgaKf7BYq7IEESCMoLp//0
+no aaa new-model
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain-lookup
+ip domain-name itla.lab
+ip cef
+no ipv6 cef
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface GigabitEthernet0/0
+ description UPLINK-a-FG1-port3
+ switchport access vlan 35
+ switchport mode access
+ switchport nonegotiate
+ negotiation auto
+!
+interface GigabitEthernet0/1
+ description SRV-CAJA
+ switchport access vlan 35
+ switchport mode access
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0242.e47c.6700
+ switchport port-security
+ negotiation auto
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet0/2
+ description SRV-INVENTARIO
+ switchport access vlan 35
+ switchport mode access
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0242.8816.7700
+ switchport port-security
+ negotiation auto
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet0/3
+ description SRV-DB
+ switchport access vlan 35
+ switchport mode access
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky
+ switchport port-security mac-address sticky 0242.31dc.bf00
+ switchport port-security
+ negotiation auto
+ spanning-tree portfast edge
+ spanning-tree bpduguard enable
+!
+interface GigabitEthernet1/0
+ description NO-USADO
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet1/1
+ description NO-USADO
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet1/2
+ description NO-USADO
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+ negotiation auto
+!
+interface GigabitEthernet1/3
+ description NO-USADO
+ switchport access vlan 999
+ switchport mode access
+ shutdown
+ negotiation auto
+!
+ip forward-protocol nd
+!
+ip http server
+ip http secure-server
+!
+ip ssh version 2
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+!
+!
+!
+!
+!
+!
+control-plane
+!
+banner exec ^C
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circumstances may this software be used separate from the Cisco Modeling Labs Software that this software was provided with, or deployed or used as part of a production environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cisco End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use or distribution of this software is expressly prohibited.
+^C
+banner incoming ^C
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circumstances may this software be used separate from the Cisco Modeling Labs Software that this software was provided with, or deployed or used as part of a production environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cisco End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use or distribution of this software is expressly prohibited.
+^C
+banner login ^C
+IOSv - Cisco Systems Confidential -
+
+Supplemental End User License Restrictions
+
+This IOSv software is provided AS-IS without warranty of any kind. Under no circumstances may this software be used separate from the Cisco Modeling Labs Software that this software was provided with, or deployed or used as part of a production environment.
+
+By using the software, you agree to abide by the terms and conditions of the Cisco End User License Agreement at http://www.cisco.com/go/eula. Unauthorized use or distribution of this software is expressly prohibited.
+^C
+banner motd ^C Acceso solo autorizado - Gregorys Morel 2025-0035 ^C
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+end
+
+SW2-DMZ#
