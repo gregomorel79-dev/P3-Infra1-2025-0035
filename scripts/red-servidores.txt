@@ -1,0 +1,30 @@
+# Configuración de red de los servidores (GNS3 > clic derecho > Edit config)
+# Gregorys Morel Duluc - 2025-0035
+
+# ---- CAJA ----
+auto eth0
+iface eth0 inet static
+	address 10.20.35.2
+	netmask 255.255.255.240
+	gateway 10.20.35.1
+	up echo nameserver 10.20.35.1 > /etc/resolv.conf
+
+# ---- INVENTARIO ----
+auto eth0
+iface eth0 inet static
+	address 10.20.35.3
+	netmask 255.255.255.240
+	gateway 10.20.35.1
+	up echo nameserver 10.20.35.1 > /etc/resolv.conf
+
+# ---- DB ----
+auto eth0
+iface eth0 inet static
+	address 10.20.35.4
+	netmask 255.255.255.240
+	gateway 10.20.35.1
+	up echo nameserver 10.20.35.1 > /etc/resolv.conf
+
+# ---- PC1 y PC2 (DHCP desde FG1) ----
+# ip addr flush dev eth0
+# udhcpc -i eth0 -q
